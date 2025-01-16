@@ -1,0 +1,38 @@
+<div fxLayout="row" fxLayoutAlign="space-around center" >
+<mat-card>
+      <mat-card-title>Members</mat-card-title>
+      <mat-card-subtitle>{{Nb_Members}}</mat-card-subtitle>
+</mat-card>
+<mat-card>
+    <mat-card-title>Events</mat-card-title>
+    <mat-card-subtitle>{{Nb_Events}}</mat-card-subtitle>
+</mat-card>
+<mat-card>
+    <mat-card-title>Tools</mat-card-title>
+    <mat-card-subtitle>{{Nb_Tools}}</mat-card-subtitle>
+</mat-card>
+<mat-card>
+    <mat-card-title>Articles</mat-card-title>
+    <mat-card-subtitle>{{Nb_Articles}}</mat-card-subtitle>
+</mat-card>
+</div>
+
+<div class="chart-wrapper" style="width: 300px; height: 300px;">
+    <canvas baseChart
+            [type]="'pie'"
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      >
+    </canvas>
+</div>
+<br>
+<div class="chart-wrapper" style="width: 400px; height: 400px;">
+    <canvas baseChart
+            [type]="'line'"
+      [datasets]="chartData" 
+      [labels]="chartLabels"
+      [options]="chartOptions"
+      >
+    </canvas>
+</div>

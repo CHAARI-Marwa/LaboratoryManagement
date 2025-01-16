@@ -1,0 +1,61 @@
+/* Container styles to center the card */
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(to right, #dcc3f6, #bad1f9); /* Gradient background */
+}
+
+/* Styles for the mat-card */
+mat-card {
+    width: 400px; /* Set a fixed width */
+    padding: 20px; /* Add padding */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for a floating effect */
+    background-color: #ffffff; /* White background for the card */
+    display: flex; /* Enable flexbox */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    text-align: center; /* Center text inside card */
+    transition: transform 0.3s; /* Smooth transition for scaling effect */
+}
+
+/* Hover effect for the card */
+mat-card:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+}
+
+/* Styles for the card title */
+mat-card-title {
+    font-size: 28px; /* Larger title font size */
+    margin-bottom: 16px; /* Spacing below title */
+    color: #333; /* Darker text color */
+    font-weight: 600; /* Bold title */
+}
+
+/* Styles for buttons */
+button {
+    background-color: #dcc3f6; /* Primary button color */
+    color: #ffffff; /* Button text color */
+    border-radius: 25px; /* Fully rounded button */
+    padding: 12px 20px; /* Padding for the button */
+    border: none; /* Remove border */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 16px; /* Button font size */
+    font-weight: 500; /* Semi-bold text */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #d8e4f8; /* Darker on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Styles for icons */
+.google-icon {
+    margin-right: 8px; /* Spacing between icon and text */
+    vertical-align: middle; /* Align icon vertically */
+    font-size: 20px; /* Adjust icon size */
+}

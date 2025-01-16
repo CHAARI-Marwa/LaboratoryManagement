@@ -1,0 +1,56 @@
+<div fxLayout="row" fxLayoutAlign="end center" >
+    <button (click)="open()">create new event</button>
+  </div>
+  
+  <table mat-table [dataSource]="eventSource" class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> TITLE </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="dateDebut">
+        <th mat-header-cell *matHeaderCellDef> Date Debut </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateDebut}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="dateFin">
+        <th mat-header-cell *matHeaderCellDef> Date Fin </th>
+        <td mat-cell *matCellDef="let element"> {{element.dateFin}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="lieu">
+          <th mat-header-cell *matHeaderCellDef> lieu </th>
+          <td mat-cell *matCellDef="let element"> {{element.lieu}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> Edit </th>
+          <td mat-cell *matCellDef="let element">
+            <button (click)="openid(element.id)"> 
+              <mat-icon aria-hidden="false" aria-label="Edit icon">edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button (click)="delete()"> 
+              <!-- pas de string interpolation car il est un paramètre de la methode -->
+              <mat-icon aria-hidden="false" aria-label="Delete icon">delete</mat-icon>
+            </button> 
+          </td>
+        </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    
+    
