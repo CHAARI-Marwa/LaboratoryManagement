@@ -10,58 +10,61 @@ import { MemberService } from 'src/services/member.service';
 })
 export class MemberFormComponent implements OnInit{
 
-  constructor(private MS:MemberService, private router:Router, private activatedRoute:ActivatedRoute){}
-  idcourant!: string;
-  form!: FormGroup; //on a initialiser qq que soit le type de variable avec "!"
+  form!: FormGroup;
+  selectedFileName: string = ''; // For displaying the selected file name
 
-  //creation de objet de type form groupe fih les 4 types envoyés par le formulaire 
+  constructor(
+    private ms: MemberService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
-  ngOnInit(){
-      //1. recuperer la route active de la page
-      this.idcourant =this.activatedRoute.snapshot.params['id']
-      console.log(this.idcourant)
+  ngOnInit(): void {
 
-      //2. if id existe et a une valeure => je suis dans edit 
-      if(!!this.idcourant){this.MS.getMemberById(this.idcourant).subscribe((member)=>{
-        this.form=new FormGroup({
-          yourfieldname:new FormControl(),
-          cin: new FormControl(member.cin,[Validators.required]),
-          name: new FormControl(member.name,[Validators.required]),
-          cv: new FormControl(member.cv,[Validators.required]),
-          type: new FormControl(member.type,[]),
-        })
-      })
-      }
-      else{
-        //3. sinon je suis dan create
-        this.initForm();
-      }
-  }
-
-   initForm():void{
-    //creation d'une nouvelle instance de form et initialisation des produits
-    this.form=new FormGroup({
-      cin: new FormControl(null,[Validators.required]),
-      name: new FormControl(null,[Validators.required]),
-      cv: new FormControl(null,[Validators.required]),
-      type: new FormControl(null,[]),
-    })
-  }
-
-  sub():void{
-    // console.log(this.form.value)
-    if(!!this.idcourant){
-      //recuperer les donnée de form
-      const member={...this.form.value,createDate:new Date().toISOString()}
-      this.MS.updateMember(member,this.idcourant).subscribe(()=>{
-      this.router.navigate(['/member'])
-    })}
-    else{
-      const member={...this.form.value,createDate:new Date().toISOString()}
-      this.MS.add(member).subscribe(()=>{
-        this.router.navigate(['/member'])
-      })
-  }}
+      this.initForm();
   
+  }
 
+  initForm(): void {
+    this.form = new FormGroup({
+      cin: new FormControl(null, [Validators.required]),
+      nom: new FormControl(null, [Validators.required]),
+      prenom: new FormControl(null, [Validators.required]),
+      dateNaissance: new FormControl(null, [Validators.required]),
+      photo: new FormControl(null, ),
+      cv: new FormControl(null, ),
+      email: new FormControl(null, [Validators.required]),
+      pubs: new FormControl(null, ),
+      grade: new FormControl(null, [Validators.required]),
+      etablissement: new FormControl(null, [Validators.required]),
+
+    });
+  }
+
+  // File selection handler
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files.length > 0) {
+      const file = input.files[0];
+      this.selectedFileName = file.name; // Display the file name
+      this.form.patchValue({
+        cv: file.name // Save the file name in the 'cv' field
+      });
+    }
+  }
+
+  sub(): void {
+    
+    const formData = {
+      ...this.form.value,
+     
+      
+    };
+    console.log(formData);
+   this.ms.addEtudiant(formData).subscribe(() => {
+        this.router.navigate(['/member']);
+      });
+    }
+  
 }

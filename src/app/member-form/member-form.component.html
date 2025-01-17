@@ -1,30 +1,89 @@
+<br>
 <form [formGroup]="form" (ngSubmit)="sub()">
+ 
+ 
 
-<input  hidden="true"  matInput class="form-control" formControlName="yourfieldname">
-
-<p>
+  <p>
+ 
     <mat-form-field appearance="fill">
-        <input matInput placeholder="CIN" formControlName="cin">
+      <input matInput placeholder="cin" formControlName="cin">
     </mat-form-field>
-</p>
+  </p>
 
-<p>
+  <p>
     <mat-form-field appearance="fill">
-        <input matInput placeholder="Name" formControlName="name">
+      <input matInput placeholder="nom" formControlName="nom">
     </mat-form-field>
-</p>
+  </p>
 
-<p>
+  <p>
     <mat-form-field appearance="fill">
-        <input matInput placeholder="CV" formControlName="cv">
+      <input matInput placeholder="prenom" formControlName="prenom">
     </mat-form-field>
-</p>
+  </p>
 
-<p>
+  <p>
     <mat-form-field appearance="fill">
-        <input matInput placeholder="Type" formControlName="type">
+      <input matInput [matDatepicker]="picker" placeholder="Date de naissance" formControlName="dateNaissance">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-</p>
+  </p>
 
-<button type="submit" >Submit</button>
-</form>
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="photo" formControlName="photo">
+    </mat-form-field>
+  </p>
+  
+
+
+  <p>
+    <!-- File Selector -->
+    <input
+      type="file"
+      (change)="onFileSelected($event)"
+      placeholder="Select CV"
+    />
+    <small>{{ selectedFileName }}</small>
+  </p>
+
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="email" formControlName="email">
+    </mat-form-field>
+  </p>
+
+
+
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="pubs" formControlName="pubs">
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="grade" formControlName="grade">
+    </mat-form-field>
+  </p>
+
+
+  
+ 
+
+
+
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput placeholder="etablissement" formControlName="etablissement">
+    </mat-form-field>
+  </p>
+
+ 
+
+
+<button type="submit"> submit </button>
+
+
+</form> 
