@@ -32,4 +32,8 @@ export class OutilsService {
     // Utilisez la méthode PUT pour envoyer la requête de mise à jour.
     return this.http.put<Outil>(`${this.baseUrl}/${id}`, outil);
   }
+
+  outilMemberLink(idMember: number, outil: Outil): Observable<Outil[]> {
+    return this.http.post<Outil[]>(`http://localhost:9000/membres/${idMember}/outils`, outil);
+  }
 }

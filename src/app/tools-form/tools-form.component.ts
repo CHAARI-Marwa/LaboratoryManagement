@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { member } from 'src/models/member';
 import { Outil } from 'src/models/outil';
-import { MemberService } from 'src/services/member.service';
 import { OutilsService } from 'src/services/outils.service';
-
 @Component({
   selector: 'app-tools-form',
   templateUrl: './tools-form.component.html',
@@ -15,22 +12,17 @@ export class ToolsFormComponent implements OnInit {
   form!: FormGroup;
   isEditMode: boolean = false;
   outilId: number | null = null;
-  membres: member[] = [];
-
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private outilService: OutilsService,
-    private memberService: MemberService
+    private outilService: OutilsService
   ) {}
-
   ngOnInit(): void {
     this.form = this.fb.group({
       source: ['', Validators.required],
       date: ['', Validators.required],
     });
-
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
@@ -39,9 +31,7 @@ export class ToolsFormComponent implements OnInit {
         this.loadOutil(+id);
       }
     });
-    this.loadMembers();
   }
-
   loadOutil(id: number): void {
     this.outilService.getOutilById(id).subscribe(
       (outil) => {
@@ -55,18 +45,6 @@ export class ToolsFormComponent implements OnInit {
       }
     );
   }
-
-  loadMembers():void{
-    this.memberService.getAllMembers().subscribe(
-      (data: member[]) => {
-        this.membres = data;  // Remplissez le tableau members avec les données récupérées
-      },
-      (error) => {
-        console.error('Erreur lors de la récupération des membres', error);
-      }
-    );
-  }
-
   submit(): void {
     if (this.form.invalid) {
       return;
