@@ -12,14 +12,14 @@ import { DialogRef } from '@angular/cdk/dialog';
 })
 export class EventsComponent implements OnInit{
 
-  constructor(private ES : EventService, private dialog:MatDialog){
-
-  }
-
+  displayedColumns: string[] = ['id', 'titre', 'date', 'lieu', 'actions'];
   eventSource : Evt[]=[]
+
+  constructor(private ES : EventService, private dialog:MatDialog){}
 
   ngOnInit(): void {
     this.ES.getAllEvent().subscribe((response)=>{
+      console.log("Received events from backend:", response);
       this.eventSource=response
     })
   }
@@ -40,35 +40,42 @@ export class EventsComponent implements OnInit{
     })
   }
 
-  openid(id: string):void{
-    //lancer l'ouverture 
-   
-    //envoyer id vers model
+  openid(id: string): void {
     const dialogConfig = new MatDialogConfig();
-
+  
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-
-    dialogConfig.data = {id};
-
-    const dialogRef=this.dialog.open(ModalComponent, dialogConfig);
-    dialogRef.afterClosed().subscribe((data)=>{
-      if(data){
-      this.ES.update(data,id).subscribe(()=>{
-          //getAll
-          this.ES.getAllEvent().subscribe((response)=>{
-            this.eventSource=response
-          })
-        
-      })}
-    })
-
+    dialogConfig.data = { id };  // Passez l'ID ici
+  
+    const dialogRef = this.dialog.open(ModalComponent, dialogConfig);
+  
+    dialogRef.afterClosed().subscribe((data) => {
+      if (data) {
+        // Mettez à jour l'événement via le service après modification
+        this.ES.update(data, id).subscribe(() => {
+          // Récupérez à nouveau tous les événements
+          this.ES.getAllEvent().subscribe((response) => {
+            this.eventSource = response;
+          });
+        });
+      }
+    });
   }
+  
 
-  delete(): void{
-
+  delete(id: string): void {
+    const confirmation = confirm('Êtes-vous sûr ? Cette action supprimera définitivement cet événement !');
+    
+    if (confirmation) {
+      this.ES.deleteEvent(id).subscribe(() => {
+        alert('L\'événement a été supprimé avec succès.');
+        // Mise à jour de la liste des événements après suppression
+        this.ES.getAllEvent().subscribe((response) => {
+          this.eventSource = response;
+        });
+      });
+    }
   }
+  
 
-
-  displayedColumns: string[] = ['id', 'title', 'dateDebut', 'dateFin', 'lieu', 'edit', 'delete'];
 }

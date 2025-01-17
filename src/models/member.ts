@@ -3,11 +3,11 @@ export interface member {
     cin: string;
     name: string;
     prenom: string;
-    date: string; // Use a date type if preferred: Date
+    date: string;
     photo: string;
     cv: string;
     email: string;
     password: string;
     type: string;
-    createdDate: string; // Use a date type if preferred: Date
+    createdDate: string;
   }

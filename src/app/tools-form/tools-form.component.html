@@ -21,7 +21,15 @@
           La date est obligatoire
         </mat-error>
       </mat-form-field>
-  
+
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Membre</mat-label>
+        <mat-select formControlName="membre" required>
+          <mat-option *ngFor="let membre of membres" [value]="membre">
+            {{ membre.name }} {{ membre.prenom}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
       <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
         {{ isEditMode ? 'Mettre à jour' : 'Ajouter' }}
       </button>

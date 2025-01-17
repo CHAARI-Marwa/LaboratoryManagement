@@ -1,0 +1,42 @@
+/* Style des boutons d'action */
+.action-btn {
+    color: rgba(100, 151, 151, 0.655); /* Change la couleur des icônes en bleu */
+    margin-right: 10px; /* Ajoute de l'espace entre les icônes */
+  }
+  
+  .action-btn:last-child {
+    margin-right: 0; /* Retire l'espace après la dernière icône */
+  }
+  
+  mat-icon {
+    font-size: 24px; /* Ajuste la taille des icônes si nécessaire */
+  }
+/* Centrer le bouton */
+.button-container {
+    margin-bottom: 20px; /* Espace sous le bouton pour séparer avec l'élément suivant */
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+  }
+  
+  /* Style du bouton */
+  .new-event-btn {
+    background-color: rgba(100, 151, 151, 0.655); /* Couleur de fond en rgba */
+    color: white; /* Couleur du texte en blanc */
+    border: none; /* Supprimer les bordures par défaut */
+    border-radius: 5px; /* Ajoute des coins arrondis */
+    padding: 10px 20px; /* Ajoute de l'espace à l'intérieur du bouton */
+    font-size: 16px; /* Ajuste la taille de la police */
+    cursor: pointer; /* Change le curseur quand on survole le bouton */
+    transition: background-color 0.3s ease; /* Ajoute une transition fluide pour la couleur de fond */
+    margin-bottom: 30px; /* Espace sous le bouton */
+  }
+  
+  .new-event-btn:hover {
+    background-color: rgba(100, 151, 151, 1); /* Change la couleur au survol */
+  }
+  
+  /* Formulaire (si nécessaire) */
+  .form-container {
+    margin-top: 20px; /* Ajoute de l'espace en haut du formulaire */
+  }

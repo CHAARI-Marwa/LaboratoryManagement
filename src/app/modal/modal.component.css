@@ -1,0 +1,79 @@
+/* Style général du mat-dialog */
+::ng-deep .mat-dialog-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Fond blanc translucide */
+    border-radius: 12px; /* Coins arrondis */
+    padding: 20px;
+    max-width: 600px; /* Augmente la largeur de la fenêtre */
+    width: 90%; /* S'adapte à la largeur de l'écran */
+    box-shadow: 0 4px 12px rgba(38, 88, 104, 0.968); /* Ombre douce */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 400px; /* Hauteur minimale pour la fenêtre */
+  }
+  
+  /* Style des champs de formulaire */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px; /* Espace entre les champs */
+  }
+  
+  .mat-form-field-label {
+    color: rgba(100, 151, 151, 0.8); /* Couleur de texte de label claire */
+  }
+  
+  .mat-input-element {
+    color: rgba(100, 151, 151, 0.9); /* Couleur du texte de l'input */
+  }
+  
+  /* Mat-dialog-actions */
+  mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  /* Boutons */
+  button.mat-raised-button {
+    background-color: rgba(100, 151, 151, 0.655); /* Couleur du bouton */
+    color: white; /* Couleur du texte du bouton */
+    padding: 12px 20px;
+    border-radius: 8px; /* Coins arrondis */
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(38, 88, 104, 0.968); /* Ombre légère */
+  }
+  
+  button.mat-raised-button:hover {
+    background-color: rgba(100, 151, 151, 1); /* Couleur plus intense au survol */
+  }
+  
+  button.mat-raised-button.mat-primary {
+    background-color: rgba(100, 151, 151, 1); /* Couleur du bouton principal */
+  }
+  
+  button.mat-raised-button.mat-primary:hover {
+    background-color: rgba(100, 151, 151, 1); /* Intensité maintenue au survol */
+  }
+  
+  /* Modifications des textes pour les rendre plus doux */
+  p, mat-label {
+    font-size: 16px;
+    color: rgba(100, 151, 151, 0.75); /* Couleur douce pour le texte */
+  }
+  
+  /* Espace entre le contenu */
+  p + mat-form-field {
+    margin-top: 15px;
+  }
+  
+  /* Détails du champ de date */
+  mat-label {
+    font-weight: 600; /* Met en gras les labels */
+  }
+  
+  /* Design des dates */
+  .mat-datepicker-toggle-button {
+    color: rgba(100, 151, 151, 0.8); /* Couleur de l'icône du sélecteur de date */
+  }

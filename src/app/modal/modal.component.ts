@@ -27,15 +27,13 @@ export class ModalComponent {
       this.initForm();
     }
   }
-
   form!: FormGroup;
 
   initForm():void{
     this.form=new FormGroup({
         yourfieldname:new FormControl(),
-        title: new FormControl(null,[Validators.required]),
-        dateDebut: new FormControl(null,[Validators.required]),
-        dateFin: new FormControl(null,[Validators.required]),
+        titre: new FormControl(null,[Validators.required]),
+        date: new FormControl(null,[Validators.required]),
         lieu: new FormControl(null,[]),
     })
   }
@@ -43,9 +41,8 @@ export class ModalComponent {
   initFormId(event: Evt):void{
     this.form=new FormGroup({
         yourfieldname:new FormControl(),
-        title: new FormControl(event.title,[Validators.required]),
-        dateDebut: new FormControl(event.dateDebut ,[Validators.required]),
-        dateFin: new FormControl(event.dateFin,[Validators.required]),
+        titre: new FormControl(event.titre,[Validators.required]),
+        date: new FormControl(event.date ,[Validators.required]),
         lieu: new FormControl(event.lieu,[]),
     })
   }
