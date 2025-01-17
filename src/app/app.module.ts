@@ -34,7 +34,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
-
+import { FormEtdComponent } from './form-etd/form-etd.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -50,9 +51,11 @@ import { ToolsFormComponent } from './tools-form/tools-form.component';
     EventFormComponent,
     ModalComponent,
     ConfirmComponent,
-    ToolsFormComponent
+    ToolsFormComponent,
+    FormEtdComponent
   ],
   imports: [
+    MatSelectModule,
     MatCardModule, 
     MatButtonModule,
     MatIconModule,

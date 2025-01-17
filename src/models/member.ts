@@ -1,12 +1,13 @@
-
-
-export interface Member
-{
-    id:string,
-    cin:string,
-    name:string,
-    cv:string,
-    type:string,
-    createDate:string
-    
-}
+export interface member {
+    id: string;
+    cin: string;
+    name: string;
+    prenom: string;
+    date: string; // Use a date type if preferred: Date
+    photo: string;
+    cv: string;
+    email: string;
+    password: string;
+    type: string;
+    createdDate: string; // Use a date type if preferred: Date
+  }

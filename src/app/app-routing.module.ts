@@ -8,8 +8,30 @@ import { ArticlesComponent } from './articles/articles.component';
 import { EventsComponent } from './events/events.component';
 import { LoginComponent } from './login/login.component';
 import { ToolsFormComponent } from './tools-form/tools-form.component';
+import { FormEtdComponent } from './form-etd/form-etd.component';
 
 const routes: Routes = [
+  { 
+    path: 'publications', 
+    component: FormEtdComponent
+  },
+  { 
+    path: 'etudiants/:id/edit', 
+    component: FormEtdComponent 
+  },
+  {
+    path:'create-enseignant',
+    pathMatch:"full",
+    component:MemberFormComponent
+  },
+  { 
+    path: 'enseignants/:id/edit', 
+    component: MemberFormComponent 
+  },
+  { 
+    path: 'create-etudiant', 
+    component: FormEtdComponent
+  },
   { 
     path: 'tools/new', 
     component: ToolsFormComponent
