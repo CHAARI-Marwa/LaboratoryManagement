@@ -1,0 +1,189 @@
+/* Main container */
+.form-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 32px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ffffff, #f7f7f7);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  position: relative;
+  animation: slideIn 1s ease-out;
+}
+
+/* Decorative gradients */
+.form-container::before,
+.form-container::after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.form-container::before {
+  top: -60px;
+  left: -60px;
+  background: radial-gradient(circle, rgba(255, 99, 132, 0.5), transparent);
+}
+
+.form-container::after {
+  bottom: -60px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(54, 162, 235, 0.5), transparent);
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Title */
+mat-card-title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #4097e2;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.2s ease-out;
+}
+
+/* Fields */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+mat-label {
+  color: #4097e2;
+  font-weight: bold;
+}
+
+input[matInput], mat-select, mat-datepicker-toggle {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input[matInput]:hover, mat-select:hover, mat-datepicker-toggle:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+input[matInput]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.3);
+}
+
+/* Buttons */
+/* Button Styling */
+button[type="submit"] {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  background: linear-gradient(135deg, #3f51b5, #4097e2);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Hover Effect */
+button[type="submit"]:hover {
+  background: linear-gradient(135deg, #4097e2, #3f51b5);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+}
+
+/* Button Ripple Animation */
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+button[type="submit"]:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* Button Text Styling */
+button[type="submit"] span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+/* Active Effect */
+button[type="submit"]:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 24px;
+  }
+
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

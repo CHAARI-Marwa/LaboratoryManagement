@@ -1,0 +1,66 @@
+{
+  "members": [
+    {
+      "yourfieldname": null,
+      "cin": "965847",
+      "name": "amal trigui",
+      "cv": "lien",
+      "type": "student",
+      "createDate": "2024-10-16T09:45:37.260Z",
+      "id": "14567"
+    },
+    {
+      "yourfieldname": null,
+      "cin": "1237",
+      "name": "med",
+      "cv": "lien",
+      "type": "student",
+      "createDate": "2024-10-16T09:45:52.980Z",
+      "id": "596a"
+    },
+    {
+      "yourfieldname": null,
+      "cin": "5678",
+      "name": "Awatef chaari",
+      "cv": "lien",
+      "type": "teacher",
+      "createDate": "2024-10-16T09:54:55.064Z",
+      "id": "290e"
+    },
+    {
+      "yourfieldname": null,
+      "cin": "5789",
+      "name": "Fatma",
+      "cv": "lien",
+      "type": "student",
+      "createDate": "2024-10-16T09:55:09.927Z",
+      "id": "cc2a"
+    }
+  ],
+  "evt": [
+    {
+      "yourfieldname": null,
+      "title": "conf77",
+      "dateDebut": "2024-10-08T23:00:00.000Z",
+      "dateFin": "2024-10-11T23:00:00.000Z",
+      "lieu": "sfax",
+      "id": "12"
+    },
+    {
+      "id": "eff7",
+      "yourfieldname": null,
+      "title": "Conférence",
+      "dateDebut": "2024-10-09T23:00:00.000Z",
+      "dateFin": "2024-10-17T23:00:00.000Z",
+      "lieu": "tunis"
+    },
+    {
+      "yourfieldname": null,
+      "title": "tttt",
+      "dateDebut": "2024-10-02T23:00:00.000Z",
+      "dateFin": "2024-10-09T23:00:00.000Z",
+      "lieu": "gggggg",
+      "id": "d7f3"
+    }
+  ]
+}

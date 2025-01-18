@@ -1,0 +1,43 @@
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button (click)="open()" class="new-event-btn">Create new event</button>
+</div>
+
+
+<table mat-table [dataSource]="eventSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="titre">
+    <th mat-header-cell *matHeaderCellDef> TITLE </th>
+    <td mat-cell *matCellDef="let element"> {{element.titre}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef> DATE </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lieu">
+    <th mat-header-cell *matHeaderCellDef> LIEU </th>
+    <td mat-cell *matCellDef="let element"> {{element.lieu}} </td>
+  </ng-container>
+
+  <!-- Nouvelle colonne actions avec les icônes d'édition et de suppression -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> ACTIONS </th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)="openid(element.id)" aria-label="Edit" class="action-btn">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="delete(element.id)" aria-label="Delete" class="action-btn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

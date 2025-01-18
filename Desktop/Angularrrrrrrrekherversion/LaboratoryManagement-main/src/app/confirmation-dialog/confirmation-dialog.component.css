@@ -1,0 +1,60 @@
+/* Style global du dialogue */
+h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1e3a8a; /* Bleu foncé */
+  }
+  
+  div[mat-dialog-content] {
+    padding: 20px;
+    font-size: 1.1rem;
+    color: #334155; /* Gris clair */
+    text-align: center;
+    background-color: #e1effa; /* Bleu clair */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles pour les actions (annuler et confirmer) */
+  div[mat-dialog-actions] {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #b0d4f1; /* Bleu clair */
+    border-radius: 0 0 8px 8px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Style pour le bouton Annuler */
+  button:first-child {
+    background-color: #60a5fa; /* Bleu modéré */
+    color: white;
+  }
+  
+  button:first-child:hover {
+    background-color: #1e3a8a; /* Bleu foncé */
+  }
+  
+  /* Style pour le bouton Confirmer */
+  button:last-child {
+    background-color: #3b82f6; /* Bleu vif */
+    color: white;
+  }
+  
+  button:last-child:hover {
+    background-color: #2563eb; /* Bleu foncé */
+  }
+  
